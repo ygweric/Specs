@@ -7,12 +7,9 @@ Pod::Spec.new do |s|
     s.author = 'Agrimap'
     s.source = { :git => 'git@github.com:ygweric/agrimap-joda-time.git', :tag => s.version }
     s.requires_arc = false
-    s.libraries = 'ObjC', 'guava', 'javax_inject', 'jre_emul', 'jsr305', 'z', 'icucore'
-    s.xcconfig = {
-        'HEADER_SEARCH_PATHS' => '$(HOME)/Applications/j2objc/current/frameworks/JRE.framework/Headers $(HOME)/Applications/j2objc/current/frameworks/Guava.framework/Headers $(HOME)/repos/360-j2objc/joda-time/build/j2objcOutputs/src/main/objc'
-    }
-    s.ios.xcconfig = {
-        'LIBRARY_SEARCH_PATHS' => '$(HOME)/Applications/j2objc/current/lib'
+    s.xcconfig = { 
+        'FRAMEWORK_SEARCH_PATHS' => '$(HOME)/Applications/j2objc/dist/frameworks $PODS_CONFIGURATION_BUILD_DIR/**',
+        'HEADER_SEARCH_PATHS' =>  '$(HOME)/Applications/j2objc/dist/frameworks/Guava.framework/Headers $(HOME)/Applications/j2objc/dist/frameworks/JRE.framework/Headers $(HOME)/Applications/j2objc/dist/frameworks/JSR305.framework/Headers $PODS_CONFIGURATION_BUILD_DIR/agrimap-joda-convert/agrimap_joda_convert.framework/Headers'
     }
     s.ios.deployment_target = '8.3'
     s.source_files = 'src/main/objc/**/*.{h,m}'
